@@ -1,12 +1,13 @@
 
 <div class="objects">
     <div class="options">
-      <p class="option active">Objetos</p>
-      <p class="option unactive">Guia de trabajos</p>
+      <p class="option" [ngClass]="{'active active--objects': objetosActivo, 'unactive unactive--objects': !objetosActivo}" (click)="objetosActivo=true">Objetos</p>
+      <p class="option" [ngClass]="{'active active--workguide': !objetosActivo, 'unactive unactive--objects': objetosActivo}" (click)="objetosActivo=false">Guia de trabajos</p>
     </div>
 
-    <div class="objects__content">
-      <div class="figures">
+    <div class="objects__content"  *ngIf="objetosActivo">
+
+      <div class="figures"      >
         <svg
           class="figure__icon"
           xmlns="http://www.w3.org/2000/svg"

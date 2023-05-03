@@ -7,17 +7,24 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { PropertiesComponent } from './components/properties/properties.component';
 import { TopologyComponent } from './components/topology/topology.component';
+import { WorkspaceComponent } from './components/workspace/workspace.component';
+// drag and drop
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     ToolbarComponent,
     PropertiesComponent,
-    TopologyComponent
+    TopologyComponent,
+    WorkspaceComponent
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

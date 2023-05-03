@@ -5,7 +5,9 @@ let appWin;
 createWindow = () => {
     appWin = new BrowserWindow({
         width: 900, 
+        minWidth: 900,
         height: 600, 
+        minHeight: 600,
         title: "Angular and Electron",
         resizable: true,
         webPreferences: {
@@ -17,7 +19,7 @@ createWindow = () => {
     appWin.loadURL(`file://${__dirname}/dist/index.html`);
 
     appWin.setMenu(null);
-    
+    appWin.webContents.openDevTools();
     //maximizar pantalla
     appWin.maximize();
 

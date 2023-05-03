@@ -98,80 +98,10 @@ body {
     transform: scale(1.1);
   }
   
-  .objects {
-    height: 70vh;
-    width: 20vw;
-    margin: 2rem;
-    background-color: rgb(18, 18, 18);
-    border-radius: 10px;
-    box-shadow: 0rem -0.1rem 3rem rgba(230, 230, 240, 0.3);
-  }
+
+ 
   
-  .options {
-    display: flex;
-    letter-spacing: -1px;
-    font-weight: 400;
-    font-size: 3rem;
-  }
   
-  .option {
-    padding: 1rem 1.5rem;
-    /* border-top-right-radius: 10px; */
-    /* border-top-left-radius: 10px; */
-  }
-  
-  .active {
-    background-color: rgb(230 230 240);
-    color: rgb(18, 18, 18);
-    border-top-left-radius: 10px;
-  }
-  
-  .unactive {
-    border-top: 1px #555 solid;
-    border-right: 1px #555 solid;
-    color: #555;
-    width: 100%;
-    border-top-right-radius: 10px;
-  }
-  
-  .figures {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(30, 30, 30);
-    height: 4rem;
-    color: rgb(230 230 240);
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .figure__icon {
-    height: 2rem;
-  }
-  
-  .figures__text {
-    font-size: 1.8rem;
-    text-align: center;
-    padding: 0.5rem;
-    letter-spacing: -1px;
-  }
-  
-  .figure__content {
-    display: flex;
-    align-items: center;
-    color: rgb(230 230 240);
-    margin-top: 1rem;
-    padding: 0.1rem 2rem;
-    width: 100%;
-    transition: 0.5s;
-    gap: 1rem;
-  }
-  
-  .figure__content:hover {
-    background-color: rgb(230 230 240);
-    color: rgb(18, 18, 18);
-    transform: scale(1.05);
-    cursor: pointer;
-  }
   
   .circle {
     height: 4rem;
