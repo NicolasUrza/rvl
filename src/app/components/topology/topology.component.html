@@ -1,210 +1,108 @@
-
 <div class="objects">
-    <div class="options">
-      <p class="option" [ngClass]="{'active active--objects': objetosActivo, 'unactive unactive--objects': !objetosActivo}" (click)="objetosActivo=true">Objetos</p>
-      <p class="option" [ngClass]="{'active active--workguide': !objetosActivo, 'unactive unactive--objects': objetosActivo}" (click)="objetosActivo=false">Guia de trabajos</p>
+  <div class="options">
+    <p class="option"
+      [ngClass]="{'active active--objects': objetosActivo, 'unactive unactive--objects': !objetosActivo}"
+      (click)="objetosActivo=true">Objetos</p>
+    <p class="option"
+      [ngClass]="{'active active--workguide': !objetosActivo, 'unactive unactive--objects': objetosActivo}"
+      (click)="objetosActivo=false">Guia de trabajos</p>
+  </div>
+  <!-- Objects Content-->
+  <div class="objects__content" *ngIf="objetosActivo">
+    <!-- Figures -->
+    <div class="figures" (click)="FiguresClick()">
+      <svg class="figure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="8" />
+      </svg>
+      <p class="figures__text">Figuras</p>
     </div>
-
-    <div class="objects__content"  *ngIf="objetosActivo">
-
-      <div class="figures"      >
-        <svg
-          class="figure__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
-          <rect width="256" height="256" fill="none" />
-          <polyline
-            points="208 96 128 176 48 96"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-        </svg>
-        <p class="figures__text">Figuras</p>
-      </div>
-
+    <div id="figures_box" class="figure__box"
+      [ngClass]="{'figures__visible': FiguresActive, 'figures__hidden': !FiguresActive}">
       <div class="figure__content">
-        <svg
-          class="circle"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
+        <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
-          <circle
-            cx="128"
-            cy="128"
-            r="96"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
+          <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
         </svg>
         <p class="figures__text">Circulo</p>
       </div>
 
       <div class="figure__content">
-        <svg
-          class="circle"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
+        <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
-          <rect
-            x="32"
-            y="48"
-            width="192"
-            height="160"
-            rx="8"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
+          <rect x="32" y="48" width="192" height="160" rx="8" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
         </svg>
         <p class="figures__text">Rectangulo</p>
       </div>
+    </div>
 
-      <div class="figures">
-        <svg
-          class="figure__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
-          <rect width="256" height="256" fill="none" />
-          <polyline
-            points="208 96 128 176 48 96"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-        </svg>
-        <p class="figures__text">Dispositivos</p>
-      </div>
-
-      <div class="figure__content">
+    <!-- Devices -->
+    <div class="figures" (click)="DevicesClick()">
+      <svg class="figure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="8" />
+      </svg>
+      <p class="figures__text">Dispositivos</p>
+    </div>
+    <!--Devices list-->
+    <div id="devices_box" class="figure__box" [ngClass]="{'figures__visible': DevicesActive, 'figures__hidden': !DevicesActive}">
+      <div class="figure__content" (click)="CreateItem('assets/img/cliente.png', 'client')">
         <img class="icon__img" src="assets/img/cliente.png" alt="" />
         <p class="figures__text">Cliente</p>
       </div>
-
-      <div class="figure__content">
+      <div #componentContainer></div>
+      <div class="figure__content" (click)="CreateItem('assets/img/servidor.png', 'server')">
         <img class="icon__img" src="assets/img/servidor.png" alt="" />
         <p class="figures__text">Servidor</p>
       </div>
 
-      <div class="figure__content">
+      <div class="figure__content" (click)="CreateItem('assets/img/switch.png', 'switch')">
         <img class="icon__img" src="assets/img/switch.png" alt="" />
         <p class="figures__text">Switch</p>
       </div>
+    </div>
+    <!-- Connections -->
 
-      <div class="figures">
-        <svg
-          class="figure__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
-          <rect width="256" height="256" fill="none" />
-          <polyline
-            points="208 96 128 176 48 96"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-        </svg>
-        <p class="figures__text">Conexiones</p>
-      </div>
+    <div class="figures" (click)="ConnectionsClick()">
+      <svg class="figure__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none" />
+        <polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="8" />
+      </svg>
 
+      <p class="figures__text">Conexiones</p>
+    </div>
+    <!--Connections list-->
+    <div id="connections_box" class="figure__box" [ngClass]="{'figures__visible':ConnectionsActive, 'figures__hidden': !ConnectionsActive}">
       <div class="figure__content">
-        <svg
-          class="circle"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
+        <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
-          <circle
-            cx="64"
-            cy="192"
-            r="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-          <circle
-            cx="192"
-            cy="64"
-            r="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-          <line
-            x1="175.03"
-            y1="80.97"
-            x2="80.97"
-            y2="175.03"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
+          <circle cx="64" cy="192" r="24" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
+          <circle cx="192" cy="64" r="24" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
+          <line x1="175.03" y1="80.97" x2="80.97" y2="175.03" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
         </svg>
         <p class="figures__text">Cable UTP-C5</p>
       </div>
 
       <div class="figure__content">
-        <svg
-          class="circle"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-        >
+        <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />
-          <circle
-            cx="64"
-            cy="192"
-            r="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-          <circle
-            cx="192"
-            cy="64"
-            r="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
-          <line
-            x1="175.03"
-            y1="80.97"
-            x2="80.97"
-            y2="175.03"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="8"
-          />
+          <circle cx="64" cy="192" r="24" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
+          <circle cx="192" cy="64" r="24" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
+          <line x1="175.03" y1="80.97" x2="80.97" y2="175.03" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="8" />
         </svg>
         <p class="figures__text">Fibra optica</p>
       </div>
     </div>
   </div>
+</div>

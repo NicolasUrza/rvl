@@ -10,6 +10,8 @@ import { TopologyComponent } from './components/topology/topology.component';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
 // drag and drop
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ItemComponent } from './components/item/item.component';
+import { ObserverDirective } from './directives/observer.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ToolbarComponent,
     PropertiesComponent,
     TopologyComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
+    ItemComponent,
+    ObserverDirective
 
 
   ],
