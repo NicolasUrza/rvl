@@ -88,7 +88,7 @@ export class ItemComponent {
   onRightClick(event:MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    let menu = document.getElementById("menu");
+    let menu = document.getElementById("menu"+this.name);
     menu.classList.remove("canvas__menu--hidden");
     menu.classList.add("canvas__menu--visible");
 
