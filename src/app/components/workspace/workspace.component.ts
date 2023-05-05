@@ -6,6 +6,5 @@ import { ViewContainerRef , ComponentFactoryResolver, ViewChild } from '@angular
   styleUrls: ['./workspace.component.scss']
 })
 export class WorkspaceComponent {
-  @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;
   componentFactoryResolver: any;
 }

@@ -1,6 +1,9 @@
-<div #itemComponent class="canvas__box" cdkDragBoundary=".canvas__boundary" cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
-[ngClass]="{'hold':mouseDown, 'release':mouseUp}">
-    <img width="100%" src="{{imgSource}}">
+<div #itemComponent id="{{name}}" class="canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
+[ngClass]="{'hold':mouse_down, 'release':mouse_up}" *ngIf="!isDestroyed"
+(cdkDragEnded)="drop($event)"
+
+>
+    <img width="100%" src="{{imgsource}}">
 
     <p>{{name}}</p>
   </div>

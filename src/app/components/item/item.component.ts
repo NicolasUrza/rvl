@@ -1,44 +1,68 @@
-import { Component, Input } from '@angular/core';
-import { ViewContainerRef , ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, Input, QueryList, ViewChildren } from '@angular/core';
+import { ViewContainerRef, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { WorkspaceComponent } from '../workspace/workspace.component';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnd, CdkDragMove } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent {
-  @Input() imgSource:string
-  @Input() name:string
+export class ItemComponent implements AfterViewInit{
+  @Input() imgsource: string
+  @Input() name: string
   mouse_down = false;
   mouse_up = false;
-  @ViewChild(WorkspaceComponent) componentContainer: WorkspaceComponent;
+  isDestroyed = false;
+  isOnWorkspace = true;
+  @Input() x="0";
+  @Input() y="0";
+  workspace = document.getElementById("workspace_container")
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver){
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+    private viewContainerRef: ViewContainerRef,
+  ) {
 
   }
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer != event.container) {
-      
-    const factory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
-    const componentRef = this.componentContainer.componentContainer.createComponent(factory);
-    componentRef.instance.imgSource = this.imgSource;
-    componentRef.instance.name = this.name;
-    this.componentContainer.componentContainer.insert(componentRef.hostView);
+  ngAfterViewInit(): void {
+    // mover el item hasta x e y
+    let element = document.getElementById(this.name);
+    console.log(this.x)
+    element.style.left = this.x;
+    element.style.top = this.y;
+  }
+
+  drop(event: CdkDragEnd<string[]>) {
+    if (this.EstaDentroDelWorspace()) {
+      this.isOnWorkspace = true;
+      event.source.boundaryElement = this.workspace;
+    }
+    else {
+      this.isDestroyed = true;
     }
   }
-  
-  mouseDown()
- {
-  
 
-    };
+  EstaDentroDelWorspace() {
+    let element = document.getElementById(this.name);
+    if (element.getBoundingClientRect().right < this.workspace.getBoundingClientRect().right && element.getBoundingClientRect().left > this.workspace.getBoundingClientRect().left) {
+      if (element.getBoundingClientRect().bottom < this.workspace.getBoundingClientRect().bottom && element.getBoundingClientRect().top > this.workspace.getBoundingClientRect().top) {
+        return true;
+      }
+    }
+    return false
+  }
 
- 
- mouseUp()
- {
-  this.mouse_down=false;
-   this.mouse_up =true;
+  mouseDown() {
+    this.mouse_down = true;
+    this.mouse_up = false;
 
- }
+  };
+
+
+  mouseUp() {
+    this.mouse_down = false;
+    this.mouse_up = true;
+
+  }
+
+
 }

@@ -49,22 +49,25 @@
       <p class="figures__text">Dispositivos</p>
     </div>
     <!--Devices list-->
-    <div id="devices_box" class="figure__box" [ngClass]="{'figures__visible': DevicesActive, 'figures__hidden': !DevicesActive}">
-      <div class="figure__content" (click)="CreateItem('assets/img/cliente.png', 'client')">
-        <img class="icon__img" src="assets/img/cliente.png" alt="" />
-        <p class="figures__text">Cliente</p>
-      </div>
-      <div #componentContainer></div>
-      <div class="figure__content" (click)="CreateItem('assets/img/servidor.png', 'server')">
-        <img class="icon__img" src="assets/img/servidor.png" alt="" />
-        <p class="figures__text">Servidor</p>
-      </div>
+    
+      <div id="devices_box" class="figure__box"
+        [ngClass]="{'figures__visible': DevicesActive, 'figures__hidden': !DevicesActive}">
+        <div class="figure__content" (mousedown)="CreateItem('assets/img/cliente.png', 'client', $event)">
+          <img class="icon__img" src="assets/img/cliente.png" alt="" />
+          <p class="figures__text">Cliente</p>
+        </div>
+        <div #componentContainer style="position: absolute; z-index: 1; width: 100%;"></div>
+        <div class="figure__content" (mousedown)="CreateItem('assets/img/servidor.png', 'server', $event)">
+          <img class="icon__img" src="assets/img/servidor.png" alt="" />
+          <p class="figures__text">Servidor</p>
+        </div>
 
-      <div class="figure__content" (click)="CreateItem('assets/img/switch.png', 'switch')">
-        <img class="icon__img" src="assets/img/switch.png" alt="" />
-        <p class="figures__text">Switch</p>
+        <div class="figure__content" (mousedown)="CreateItem('assets/img/switch.png', 'switch', $event)">
+          <img class="icon__img" src="assets/img/switch.png" alt="" />
+          <p class="figures__text">Switch</p>
+        </div>
       </div>
-    </div>
+    
     <!-- Connections -->
 
     <div class="figures" (click)="ConnectionsClick()">
@@ -77,7 +80,8 @@
       <p class="figures__text">Conexiones</p>
     </div>
     <!--Connections list-->
-    <div id="connections_box" class="figure__box" [ngClass]="{'figures__visible':ConnectionsActive, 'figures__hidden': !ConnectionsActive}">
+    <div id="connections_box" class="figure__box"
+      [ngClass]="{'figures__visible':ConnectionsActive, 'figures__hidden': !ConnectionsActive}">
       <div class="figure__content">
         <svg class="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
           <rect width="256" height="256" fill="none" />

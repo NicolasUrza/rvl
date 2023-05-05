@@ -64,13 +64,16 @@ export class TopologyComponent {
   }
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;
 
-  CreateItem(imgSource:string, name:string){
+  CreateItem(imgSource:string, name:string, event:MouseEvent){
     this.numberOfCreations.Count(name);
     const factory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
     const componentRef = this.componentContainer.createComponent(factory);
-    componentRef.instance.imgSource = imgSource;
+    componentRef.instance.imgsource = imgSource;
     componentRef.instance.name = name + this.numberOfCreations.GetCount(name).toString();
+    componentRef.instance.x = event.clientX.toString();
+    componentRef.instance.y = event.clientY.toString();
     this.componentContainer.insert(componentRef.hostView);
+  
   }
 
 
