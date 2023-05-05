@@ -70,8 +70,6 @@ export class TopologyComponent {
     const componentRef = this.componentContainer.createComponent(factory);
     componentRef.instance.imgsource = imgSource;
     componentRef.instance.name = name + this.numberOfCreations.GetCount(name).toString();
-    componentRef.instance.x = event.clientX.toString();
-    componentRef.instance.y = event.clientY.toString();
     this.componentContainer.insert(componentRef.hostView);
   
   }

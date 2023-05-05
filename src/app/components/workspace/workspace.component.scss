@@ -1,14 +1,43 @@
 .canvas {
 
     &__boundary{
-        width: 70vw;
+        width: 65vw;
         height: 70vh;
         max-width: 100%;
         margin-right: 4rem;
         margin-left: 4rem;
+        position: relative;
+        z-index: -1;
         border: solid rgb(30,30,30) 2px;
         background-image: url("cruces2.png");
         background-repeat: repeat;
         background-size: 7px 7px;
     }
+    &__message{
+        width: 65vw;
+        height: 70vh;
+        position: absolute;
+        text-align: center;
+        font-family: inherit;
+        font-style: italic;
+        font-size: 4rem;
+        z-index: 1;
+        color: rgb(230,230,240);
+        background-color: rgba(165, 165, 165, 0.3);        
+        align-items: center;
+        
+
+    }
+    &__message p{
+        position: absolute;
+        z-index: 2;
+        top:50%;       
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__message--hidden{
+        z-index: 2;
+        display: none;
+    }
+
   }

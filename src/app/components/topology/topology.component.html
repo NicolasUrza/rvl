@@ -49,6 +49,7 @@
       <p class="figures__text">Dispositivos</p>
     </div>
     <!--Devices list-->
+    <div #componentContainer style="position: absolute; z-index: 1; width: 100%;"></div>
     
       <div id="devices_box" class="figure__box"
         [ngClass]="{'figures__visible': DevicesActive, 'figures__hidden': !DevicesActive}">
@@ -56,7 +57,6 @@
           <img class="icon__img" src="assets/img/cliente.png" alt="" />
           <p class="figures__text">Cliente</p>
         </div>
-        <div #componentContainer style="position: absolute; z-index: 1; width: 100%;"></div>
         <div class="figure__content" (mousedown)="CreateItem('assets/img/servidor.png', 'server', $event)">
           <img class="icon__img" src="assets/img/servidor.png" alt="" />
           <p class="figures__text">Servidor</p>
