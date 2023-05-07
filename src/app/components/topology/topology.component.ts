@@ -1,6 +1,7 @@
 import { Component, ViewContainerRef , ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 import { CountTopology } from 'src/app/Entities/countTopology';
+import { TopologyObjectBuilder } from 'src/app/Entities/TopologyObject';
 
 @Component({
   selector: 'app-topology',
@@ -68,8 +69,7 @@ export class TopologyComponent {
     this.numberOfCreations.Count(name);
     const factory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
     const componentRef = this.componentContainer.createComponent(factory);
-    componentRef.instance.imgsource = imgSource;
-    componentRef.instance.name = name + this.numberOfCreations.GetCount(name).toString();
+    componentRef.instance.topology = new TopologyObjectBuilder().build(name + this.numberOfCreations.GetCount(name).toString(), imgSource);
     this.componentContainer.insert(componentRef.hostView);
   
   }

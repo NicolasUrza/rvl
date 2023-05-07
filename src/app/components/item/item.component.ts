@@ -2,14 +2,14 @@ import { AfterViewInit, Component, ComponentRef, Input, QueryList, ViewChildren 
 import { ViewContainerRef, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { WorkspaceComponent } from '../workspace/workspace.component';
 import { CdkDragDrop, CdkDragEnd, CdkDragMove, CdkDragStart } from '@angular/cdk/drag-drop';
+import { TopologyObject } from 'src/app/interfaces/topology-object';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent {
-  @Input() imgsource: string
-  @Input() name: string
+  @Input() topology: TopologyObject;
   mouse_down = false;
   mouse_up = false;
   isDestroyed = false;
@@ -26,12 +26,13 @@ export class ItemComponent {
 
 
   drop(event: CdkDragEnd<string[]>) {
+    if(!this.canvasAsigned){
     let element = document.getElementById("canvas_message");
     //le quito las clases que tiene y le agrego canvas__message
 
     element.classList.add("canvas__message--hidden");
     element.classList.add("canvas__message");
-    let item = document.getElementById(this.name);
+    let item = document.getElementById(this.topology.name);
     item.classList.remove("canvas__box--dragging")
     item.classList.add("canvas__box")
     if (this.EstaDentroDelWorspace()) {
@@ -42,11 +43,11 @@ export class ItemComponent {
     }
     else {
       this.isDestroyed = true;
-    }
+    }}
   }
 
   EstaDentroDelWorspace() {
-    let element = document.getElementById(this.name);
+    let element = document.getElementById(this.topology.name);
     if (element.getBoundingClientRect().right < this.workspace.getBoundingClientRect().right && element.getBoundingClientRect().left > this.workspace.getBoundingClientRect().left) {
       if (element.getBoundingClientRect().bottom < this.workspace.getBoundingClientRect().bottom && element.getBoundingClientRect().top > this.workspace.getBoundingClientRect().top) {
         return true;
@@ -67,7 +68,7 @@ export class ItemComponent {
 
   Start(event: CdkDragStart) {
     if (!this.canvasAsigned) {
-      let item = document.getElementById(this.name);
+      let item = document.getElementById(this.topology.name);
       item.classList.remove("canvas__box")
       item.classList.add("canvas__box--dragging")
     }
@@ -88,7 +89,7 @@ export class ItemComponent {
   onRightClick(event:MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    let menu = document.getElementById("menu"+this.name);
+    let menu = document.getElementById("menu"+this.topology.name);
     menu.classList.remove("canvas__menu--hidden");
     menu.classList.add("canvas__menu--visible");
 

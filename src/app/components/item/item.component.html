@@ -1,4 +1,4 @@
-<div #itemComponent id="{{name}}" class="canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
+<div #itemComponent id="{{topology.name}}" class="canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
 [ngClass]="{'hold':mouse_down, 'release':mouse_up}" *ngIf="!isDestroyed"
 (cdkDragEnded)="drop($event)"
 (cdkDragMoved)="Move($event)"
@@ -6,11 +6,11 @@
 (contextmenu) = "onRightClick($event)"
 >
 
-    <img width="100%" src="{{imgsource}}">
+    <img width="100%" src="{{topology.imgsource}}">
 
-    <p>{{name}}</p>
+    <p>{{topology.name}}</p>
     <div style="position: relative;">
-    <div id="menu{{name}}" class="canvas__menu canvas__menu--hidden">
+    <div id="menu{{topology.name}}" class="canvas__menu canvas__menu--hidden">
       <button> Conectar</button>
       <button>Desconectar</button>
       <button>Abrir Consola</button>
