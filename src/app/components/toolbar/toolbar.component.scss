@@ -1,0 +1,20 @@
+.nav__buttons {
+    display: flex;
+    color: rgb(230 230 240);
+    /* box-shadow: 0rem -0.1rem 2rem rgba(230, 230, 240, 0.3); */
+
+    background-color: #16161f;
+
+
+    justify-content: space-between;
+    z-index: 9998;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    padding: 2.25rem;
+    height: 2.5rem;
+    width: 70rem;
+    gap: 5rem;
+    border-radius: 50px;
+}

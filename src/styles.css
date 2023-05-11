@@ -38,22 +38,7 @@ body {
   background-color: #1861a1;
 }
 
-.nav__buttons {
-  display: flex;
-  color: rgb(230 230 240);
-  /* box-shadow: 0rem -0.1rem 2rem rgba(230, 230, 240, 0.3); */
 
-  background-color: #16161f;
-  margin: 1rem auto;
-
-  justify-content: space-between;
-
-  padding: 2.25rem;
-  height: 2.5rem;
-  width: 70rem;
-  gap: 5rem;
-  border-radius: 50px;
-}
 
 .button__group {
   display: flex;
@@ -86,27 +71,11 @@ body {
 .icon__img {
   height: 3rem;
 }
-
-.properties {
-  width: 100%;
-  height: 50vh;
-  margin-top: 8rem;
-  background-color: rgb(18, 18, 18);
-  box-shadow: -1rem 0rem 2rem rgba(230, 230, 240, 0.3);
-}
-
-.property__title {
-  background-color: rgb(30, 30, 30);
-  width: 25rem;
-  height: 3rem;
-}
-
-.property__text {
-  color: rgb(230 230 240);
-  font-weight: 400;
-  font-size: 2rem;
-  letter-spacing: -1.5px;
-  text-align: center;
+body{
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #terminal {
@@ -153,7 +122,7 @@ body {
   z-index: -1;
   position: absolute;
   height: 100vh;
-  width: 90%;
+  width: 60%;
   top: 0;
   left: 0;
   filter: blur(200px);

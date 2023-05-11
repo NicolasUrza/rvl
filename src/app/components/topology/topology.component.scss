@@ -1,10 +1,15 @@
 .objects {
   height: 60vh;
   width: 20vw;
-
-  margin: 2rem;
+  top:0;
+  bottom: 0;
+  margin: auto;
+  left: 5vw;
   background-color: #13141c;
   border-radius: 10px;
+  position: absolute;
+  z-index: 9999;
+
   // overflow: scroll;
   &__content {
   }
@@ -13,6 +18,7 @@
 .figures {
   display: flex;
   justify-content: center;
+ 
   // background-color: #16161f;
   height: 4rem;
   color: rgb(230 230 240);
