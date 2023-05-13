@@ -25,9 +25,9 @@
     }
 
     &__box:active {
-        box-shadow: 0 5px 5px -3px rgba(30, 30, 30),
-            0 8px 10px 1px rgba(30, 30, 30),
-            0 3px 14px 2px rgba(30, 30, 30);
+        box-shadow: 0 5px 2px -3px rgb(201, 211, 218),
+            0 5px 5px 1px rgb(201, 211, 218),
+            0 3px 8px 2px rgb(201, 211, 218);
 
     }
     &__box--dragging{
@@ -50,6 +50,9 @@
         width: 7rem;
         height: 7rem;
         padding: 1rem;
+        box-shadow: 0 5px 2px -3px rgb(201, 211, 218),
+            0 5px 5px 1px rgb(201, 211, 218),
+            0 3px 8px 2px rgb(201, 211, 218);
     }
 
     &__menu{

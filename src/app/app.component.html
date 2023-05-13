@@ -16,10 +16,14 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <main>
+  <div
+  #componentContainer
+  style="position: absolute; z-index: 1; width: 100%"
+></div>
   <app-navigation-bar></app-navigation-bar>
   <app-toolbar></app-toolbar>
   <div class="flex-container">
-    <app-topology></app-topology>
+    <app-topology [controller]="this.controller"></app-topology>
 
   </div>
   <div class="properties_limit">

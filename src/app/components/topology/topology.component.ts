@@ -1,7 +1,8 @@
-import { Component, ViewContainerRef , ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, ViewContainerRef , ComponentFactoryResolver, ViewChild, Input } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 import { CountTopology } from 'src/app/Entities/countTopology';
 import { TopologyObjectBuilder } from 'src/app/Entities/TopologyObject';
+import { TopologyController } from 'src/app/controllers/TopologyController';
 
 @Component({
   selector: 'app-topology',
@@ -13,10 +14,8 @@ export class TopologyComponent {
   FiguresActive = false;
   DevicesActive = false;
   ConnectionsActive = false;
-  imgSource:string;
-  showItem = false;
-  numberOfCreations = new CountTopology();
 
+  @Input() controller: TopologyController;
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
   FiguresClick() {
     // se muestra o se oculta la descripcion
@@ -43,11 +42,8 @@ export class TopologyComponent {
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;
 
   CreateItem(imgSource:string, name:string, event:MouseEvent){
-    this.numberOfCreations.Count(name);
-    const factory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
-    const componentRef = this.componentContainer.createComponent(factory);
-    componentRef.instance.topology = new TopologyObjectBuilder().build(name + this.numberOfCreations.GetCount(name).toString(), imgSource);
-    this.componentContainer.insert(componentRef.hostView);
+    this.controller.CreateItem(imgSource, name, event);
+
   
   }
 

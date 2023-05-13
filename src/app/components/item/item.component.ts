@@ -27,11 +27,7 @@ export class ItemComponent {
 
   drop(event: CdkDragEnd<string[]>) {
     if(!this.canvasAsigned){
-    let element = document.getElementById("canvas_message");
-    //le quito las clases que tiene y le agrego canvas__message
-
-    element.classList.add("canvas__message--hidden");
-    element.classList.add("canvas__message");
+    
     let item = document.getElementById(this.topology.name);
     item.classList.remove("canvas__box--dragging")
     item.classList.add("canvas__box")
