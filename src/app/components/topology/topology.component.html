@@ -1,4 +1,6 @@
-<div class="objects" [ngClass]="{'minimize': this.minimize, 'objects--moving': this.moving}"
+<div class="objects" [ngClass]="{'minimize': this.minimize, 
+'objects--moving': this.moving,
+'maximize': this.maximize}"
 (cdkDragMoved)="this.moving = true" 
 (cdkDragEnded)="this.moving = false"
 cdkDrag>
@@ -23,7 +25,8 @@ cdkDrag>
     >
       Guia de trabajos
     </p>
-    <div class="option__minimize" (click)="this.minimize = !this.minimize">
+    <div class="option__minimize" (click)="this.minimize = !this.minimize;
+    this.maximize = !this.minimize">
       <p> {{minimize? "+":"-"}} </p>
     </div>
   </div>
