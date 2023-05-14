@@ -14,7 +14,8 @@ export class TopologyComponent {
   FiguresActive = false;
   DevicesActive = false;
   ConnectionsActive = false;
-
+  minimize = false;
+  moving = false;
   @Input() controller: TopologyController;
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
   FiguresClick() {

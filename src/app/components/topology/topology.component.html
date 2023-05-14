@@ -1,5 +1,8 @@
-<div class="objects" cdkDrag>
-  <div class="options" cdkDragHandle>
+<div class="objects" [ngClass]="{'minimize': this.minimize, 'objects--moving': this.moving}"
+(cdkDragMoved)="this.moving = true" 
+(cdkDragEnded)="this.moving = false"
+cdkDrag>
+  <div class="options">
     <p
       class="option"
       [ngClass]="{
@@ -20,9 +23,13 @@
     >
       Guia de trabajos
     </p>
+    <div class="option__minimize" (click)="this.minimize = !this.minimize">
+      <p> {{minimize? "+":"-"}} </p>
+    </div>
   </div>
+ 
   <!-- Objects Content-->
-  <div class="objects__content" *ngIf="objetosActivo">
+  <div class="objects__content" *ngIf="objetosActivo && !minimize">
     <!-- Figures -->
     <div class="figures" (click)="FiguresClick()">
       <svg

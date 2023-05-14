@@ -1,4 +1,7 @@
-<div class="nav__buttons" cdkDrag>
+<div class="nav__buttons" [ngClass]="{'nav__buttons--moving': this.moving}"
+(cdkDragMoved)="this.moving = true"
+(cdkDragEnded)="this.moving = false"
+cdkDrag>
     <div class="button__group" >
       <svg
         class="button__individual"
