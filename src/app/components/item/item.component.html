@@ -1,4 +1,4 @@
-<div #itemComponent id="{{topology.name}}" class="canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
+<div #itemComponent id="{{topology.name}}" class="canvas canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
 [ngClass]="{'hold':mouse_down, 'release':mouse_up}" *ngIf="!isDestroyed"
 (cdkDragEnded)="drop($event)"
 (cdkDragMoved)="Move($event)"
