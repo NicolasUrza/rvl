@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'rvl';
   numberOfCreations = new CountTopology();
   controller = new TopologyController(this);
+  topologyObjects: ItemComponent[];
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
   
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;
@@ -21,8 +22,11 @@ export class AppComponent {
     this.numberOfCreations.Count(name);
     const factory = this.componentFactoryResolver.resolveComponentFactory(ItemComponent);
     const componentRef = this.componentContainer.createComponent(factory);
-    componentRef.instance.topology = new TopologyObjectBuilder().build(name + this.numberOfCreations.GetCount(name).toString(), imgSource);
+    let topology = new TopologyObjectBuilder().build(name + this.numberOfCreations.GetCount(name).toString(), imgSource);
+    componentRef.instance.topology = topology
+    componentRef.instance.controller = this.controller;
     this.componentContainer.insert(componentRef.hostView);
-  
+    this.controller.ids.push(componentRef.instance.topology.name);
+    this.controller.activeTopologyObjects.push(componentRef.instance);
   }
 }

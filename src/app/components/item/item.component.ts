@@ -1,19 +1,21 @@
-import { AfterViewInit, Component, ComponentRef, Input, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, HostListener, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ViewContainerRef, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { WorkspaceComponent } from '../workspace/workspace.component';
 import { CdkDragDrop, CdkDragEnd, CdkDragMove, CdkDragStart } from '@angular/cdk/drag-drop';
 import { TopologyObject } from 'src/app/interfaces/topology-object';
+import { TopologyController } from 'src/app/controllers/TopologyController';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent {
+export class ItemComponent implements OnInit{
   @Input() topology: TopologyObject;
   mouse_down = false;
   mouse_up = false;
   isDestroyed = false;
   isOnWorkspace = true;
+  controller: TopologyController;
 
   workspace = document.getElementById("workspace_container")
   canvasAsigned = false;
@@ -22,6 +24,8 @@ export class ItemComponent {
     private viewContainerRef: ViewContainerRef,
   ) {
 
+  }
+  ngOnInit(): void {
   }
 
 
@@ -51,15 +55,10 @@ export class ItemComponent {
     }
     return false
   }
-
+  isConnected: boolean = false;
   Move(event: CdkDragMove<string[]>) {
-    if (!this.canvasAsigned) {
-      let element = document.getElementById("canvas_message");
-      //le quito las clases que tiene y le agrego canvas__message
-      element.classList.remove("canvas__message--hidden");
-      element.classList.add("canvas__message");
-
-    }
+    if(this.isConnected){
+      this.controller.CreateConnection("0","1");}
   }
 
   Start(event: CdkDragStart) {
@@ -90,5 +89,31 @@ export class ItemComponent {
     menu.classList.add("canvas__menu--visible");
 
   }
+  CreateConnection(){
+    this.controller.CreateConnection("", "");
+    this.DeactivateMenu();
+  }
+  // event listener que cuando clickeo en cualquier lado uqe no este dentro del menu me ponga hiden el canvas__menu
+  // y que cuando clickeo en el menu me ponga visible el canvas__menu
+  // y que cuando clickeo en el menu y luego en cualquier lado que no sea el menu me ponga hidden el canvas__menu
+  @HostListener('document:click', ['$event']) onDocumentClick(event: MouseEvent){
+      let menu = document.getElementById("menu"+this.topology.name);
+      // si el mouse no esta dentro del menu
+      if(!menu.contains(<Node>event.target)){
+        this.DeactivateMenu();
+      }
+    
+  }
 
+  DeactivateMenu(){
+    let menu = document.getElementById("menu"+this.topology.name);
+    //set timeout para que no se active el menu cuando se clickea en el menu
+    setTimeout(() => {
+
+    if(!menu.classList.contains("canvas__menu--hidden")){
+      menu.classList.remove("canvas__menu--visible");
+      menu.classList.add("canvas__menu--hidden");
+    }
+  }, 349);
+  }
 }
