@@ -30,6 +30,10 @@ export class ItemComponent implements OnInit{
 
 
   drop(event: CdkDragEnd<string[]>) {
+    if(this.isConnected){
+      this.controller.CreateConnection("0","1");
+
+    }
     if(!this.canvasAsigned){
     
     let item = document.getElementById(this.topology.name);
@@ -56,9 +60,11 @@ export class ItemComponent implements OnInit{
     return false
   }
   isConnected: boolean = false;
+  moveCounter: number = 0;
   Move(event: CdkDragMove<string[]>) {
-    if(this.isConnected){
+    if(this.isConnected && this.moveCounter % 7 == 0){
       this.controller.CreateConnection("0","1");}
+    this.moveCounter++;
   }
 
   Start(event: CdkDragStart) {
@@ -90,6 +96,7 @@ export class ItemComponent implements OnInit{
 
   }
   CreateConnection(){
+
     this.controller.CreateConnection("", "");
     this.DeactivateMenu();
   }
