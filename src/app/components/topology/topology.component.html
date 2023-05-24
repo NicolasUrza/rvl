@@ -1,9 +1,14 @@
-<div class="objects" [ngClass]="{'minimize': this.minimize, 
-'objects--moving': this.moving,
-'maximize': this.maximize}"
-(cdkDragMoved)="this.moving = true" 
-(cdkDragEnded)="this.moving = false"
-cdkDrag>
+<div
+  class="objects"
+  [ngClass]="{
+    minimize: this.minimize,
+    'objects--moving': this.moving,
+    maximize: this.maximize
+  }"
+  (cdkDragMoved)="this.moving = true"
+  (cdkDragEnded)="this.moving = false"
+  cdkDrag
+>
   <div class="options">
     <p
       class="option"
@@ -25,12 +30,14 @@ cdkDrag>
     >
       Guia de trabajos
     </p>
-    <div class="option__minimize" (click)="this.minimize = !this.minimize;
-    this.maximize = !this.minimize">
-      <p> {{minimize? "+":"-"}} </p>
+    <div
+      class="option__minimize"
+      (click)="this.minimize = !this.minimize; this.maximize = !this.minimize"
+    >
+      <p>{{ minimize ? "+" : "-" }}</p>
     </div>
   </div>
- 
+
   <!-- Objects Content-->
   <div class="objects__content" *ngIf="objetosActivo && !minimize">
     <!-- Figures -->
@@ -127,7 +134,6 @@ cdkDrag>
     </div>
     <!--Devices list-->
     <hr class="hr" />
-    
 
     <div
       id="devices_box"
@@ -139,14 +145,14 @@ cdkDrag>
     >
       <div
         class="figure__content"
-        (mousedown)="CreateItem('assets/img/cliente.png', 'client', $event)"
+        (mousedown)="CreateItem('assets/img/cliente.png', 'Client', $event)"
       >
         <img class="icon__img" src="assets/img/cliente.png" alt="" />
         <p class="figures__text light__weight">Cliente</p>
       </div>
       <div
         class="figure__content"
-        (mousedown)="CreateItem('assets/img/servidor.png', 'server', $event)"
+        (mousedown)="CreateItem('assets/img/servidor.png', 'Server', $event)"
       >
         <img class="icon__img" src="assets/img/servidor.png" alt="" />
         <p class="figures__text light__weight">Servidor</p>
@@ -154,7 +160,7 @@ cdkDrag>
 
       <div
         class="figure__content"
-        (mousedown)="CreateItem('assets/img/switch.png', 'switch', $event)"
+        (mousedown)="CreateItem('assets/img/switch.png', 'Switch', $event)"
       >
         <img class="icon__img" src="assets/img/switch.png" alt="" />
         <p class="figures__text light__weight">Switch</p>

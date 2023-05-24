@@ -38,13 +38,11 @@ body {
   background-color: #1861a1;
 }
 
-
-
 .button__group {
   display: flex;
   gap: 1.75rem;
-  height: 2.75rem;
-  margin-top: -1.5rem;
+  height: 2.4rem;
+  margin-top: -1.25rem;
   transition: 0.5s;
 }
 
@@ -71,7 +69,7 @@ body {
 .icon__img {
   height: 3rem;
 }
-body{
+body {
   height: 100vh;
   width: 100vw;
   overflow-y: hidden;

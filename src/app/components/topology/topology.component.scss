@@ -1,44 +1,41 @@
 .objects {
-  
   height: 60vh;
   width: 20vw;
-  top:0;
+  top: 0;
   bottom: 0;
   margin: auto;
   left: 5vw;
   background-color: #13141c;
-  border-radius: 10px;
+  border-radius: 30px;
   position: absolute;
   z-index: 9998;
 
   // overflow: scroll;
   &__content {
   }
-  &--moving{
+  &--moving {
     cursor: move;
     box-shadow: 0 5px 2px -3px rgb(138, 145, 150),
-            0 5px 5px 1px rgb(138, 145, 150),
-            0 3px 8px 2px rgb(138, 145, 150);
+      0 5px 5px 1px rgb(138, 145, 150), 0 3px 8px 2px rgb(138, 145, 150);
   }
 }
 
 @keyframes minimize {
-  0%{
+  0% {
     height: 60vh;
   }
-  100%{
+  100% {
     height: 8%;
   }
-  
 }
 
 .figures {
   display: flex;
   justify-content: center;
- 
+
   // background-color: #16161f;
   height: 4rem;
-  color: rgb(230 230 240);
+  color: rgb(166, 166, 179);
   align-items: center;
   gap: 0.5rem;
 
@@ -57,6 +54,10 @@
     transform-origin: top;
     transition: transform 0.5s;
   }
+
+  &:first-child {
+    margin-top: 0.5rem;
+  }
 }
 
 .figure__icon {
@@ -70,7 +71,7 @@
 
   font-weight: 300;
 }
-.minimize{
+.minimize {
   animation: minimize 0.5s;
   height: 8%;
 }
@@ -82,7 +83,7 @@
     height: 60vh;
   }
 }
-.maximize{
+.maximize {
   animation: maximize 0.5s;
   height: 60vh;
 }
@@ -122,11 +123,13 @@
 
 .option {
   padding: 1rem 1.5rem;
+
   /* border-top-right-radius: 10px; */
   /* border-top-left-radius: 10px; */
   cursor: pointer;
   display: flex;
-  &__minimize{
+
+  &__minimize {
     position: absolute;
     z-index: 9999;
     padding-top: 0.7rem;
@@ -134,30 +137,33 @@
     cursor: pointer;
     width: 4rem;
     font-size: 4rem;
-    top:0;
+    top: 0;
     right: 0;
     color: rgb(169, 169, 180);
-
   }
-
+  &:first-child {
+    padding-left: 3rem;
+  }
 }
 
 .active {
-  color: rgb(53, 120, 129);
+  background-color: #252f39;
+  color: #aaa;
   font-weight: 300;
   border: 1px solid rgba(49, 82, 88, 0.2);
+
   &--objects {
-    border-top-left-radius: 10px;
+    border-top-left-radius: 30px;
   }
 
   &--workguide {
     flex: 1;
-    border-top-right-radius: 10px;
+    border-top-right-radius: 30px;
   }
 }
 
 .unactive {
-  color: #555;
+  color: #333;
   font-weight: 300;
 
   --objects {
@@ -174,7 +180,7 @@
 }
 
 .hr {
-  width: 55%;
+  width: 0%;
   margin: -0.5rem auto 0.4rem auto;
   border-color: #3d3d4d70;
 }

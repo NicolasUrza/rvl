@@ -1,20 +1,25 @@
-<div #itemComponent id="{{topology.name}}" class="canvas canvas__box"  cdkDrag onmouseup="mouseUp()" onmousedown="mouseDown()"
-[ngClass]="{'hold':mouse_down, 'release':mouse_up}" *ngIf="!isDestroyed"
-(cdkDragEnded)="drop($event)"
-(cdkDragMoved)="Move($event)"
-(cdkDragStarted)="Start($event)"
-(contextmenu) = "onRightClick($event)"
+<div
+  #itemComponent
+  id="{{ topology.name }}"
+  class="canvas canvas__box"
+  cdkDrag
+  onmouseup="mouseUp()"
+  onmousedown="mouseDown()"
+  [ngClass]="{ hold: mouse_down, release: mouse_up }"
+  *ngIf="!isDestroyed"
+  (cdkDragEnded)="drop($event)"
+  (cdkDragMoved)="Move($event)"
+  (cdkDragStarted)="Start($event)"
+  (contextmenu)="onRightClick($event)"
 >
+  <img width="100%" src="{{ topology.imgsource }}" />
 
-    <img width="100%" src="{{topology.imgsource}}">
-
-    <p>{{topology.name}}</p>
-    <div style="position: relative;">
-    <div id="menu{{topology.name}}" class="canvas__menu canvas__menu--hidden">
-      <button (click)="CreateConnection()"> Conectar</button>
+  <p class="device__name">{{ topology.name }}</p>
+  <div style="position: relative">
+    <div id="menu{{ topology.name }}" class="canvas__menu canvas__menu--hidden">
+      <button (click)="CreateConnection()">Conectar</button>
       <button>Desconectar</button>
       <button>Abrir Consola</button>
-      </div>
     </div>
-
   </div>
+</div>
