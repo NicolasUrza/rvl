@@ -18,8 +18,25 @@
     box-shadow: 0 5px 2px -3px rgb(138, 145, 150),
       0 5px 5px 1px rgb(138, 145, 150), 0 3px 8px 2px rgb(138, 145, 150);
   }
+  &__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    animation: darkened 0.2s ease-in;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+  }
 }
-
+@keyframes darkened {
+  0% {
+      background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+      background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+}
 @keyframes minimize {
   0% {
     height: 60vh;

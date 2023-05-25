@@ -1,6 +1,6 @@
 export interface TopologyObject {
     name: string;
     imgsource: string;
-    isConnected: boolean;
+    cantInterfaces: number;
     getProperties(): any;
 }

@@ -1,25 +1,28 @@
-<div
-  #itemComponent
-  id="{{ topology.name }}"
-  class="canvas canvas__box"
-  cdkDrag
-  onmouseup="mouseUp()"
-  onmousedown="mouseDown()"
-  [ngClass]="{ hold: mouse_down, release: mouse_up }"
-  *ngIf="!isDestroyed"
-  (cdkDragEnded)="drop($event)"
-  (cdkDragMoved)="Move($event)"
-  (cdkDragStarted)="Start($event)"
-  (contextmenu)="onRightClick($event)"
->
-  <img width="100%" src="{{ topology.imgsource }}" />
-
+<div #itemComponent id="{{ topology.name }}" class="canvas canvas__box" cdkDrag onmouseup="mouseUp()"
+  onmousedown="mouseDown()" [ngClass]="{ hold: mouse_down, release: mouse_up, connection__enabled: ConnectionMode(), connection__selected : showConnectionButton }" *ngIf="!isDestroyed"
+  (cdkDragEnded)="drop($event)" (cdkDragMoved)="Move($event)" (cdkDragStarted)="Start($event)"
+  (contextmenu)="onRightClick($event)">
+  <img width="100%" src="{{ topology.imgsource }}" (click)="ShowConnectionButton()"/>
+  <div class="connection__button" *ngIf="showConnectionButton" (click)="CreateConnection()">
+    Conectar
+  </div>
   <p class="device__name">{{ topology.name }}</p>
   <div style="position: relative">
     <div id="menu{{ topology.name }}" class="canvas__menu canvas__menu--hidden">
-      <button (click)="CreateConnection()">Conectar</button>
-      <button>Desconectar</button>
-      <button>Abrir Consola</button>
+      <div *ngIf="showMenu">
+        <button (click)="ShowConnections()">Conectar</button>
+        <button>Desconectar</button>
+        <button>Abrir Consola</button>
+        <button>Eliminar</button>
+      </div>
+      <div *ngIf="showConnection">
+        <div *ngFor="let i of CreateList(this.topology.cantInterfaces)">
+          <button (click)="EnableConnection(i)" > "eth{{i}}"
+
+          </button>
+        </div>
+      </div>
+     
     </div>
   </div>
 </div>

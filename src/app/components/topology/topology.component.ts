@@ -3,6 +3,7 @@ import { ItemComponent } from '../item/item.component';
 import { CountTopology } from 'src/app/Entities/countTopology';
 import { TopologyObjectBuilder } from 'src/app/Entities/TopologyObject';
 import { TopologyController } from 'src/app/controllers/TopologyController';
+import { CdkDrag, CdkDragEnd } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-topology',
@@ -33,6 +34,11 @@ export class TopologyComponent {
     this.ConnectionsActive = false;
     this.CloseInactiveMenus();
     
+  }
+  MoveEnd(event:CdkDragEnd<string[]>){
+    this.moving = false;
+    let body = document.getElementById("body");
+    event.source.boundaryElement = body
   }
   ConnectionsClick() {
     // se muestra o se oculta la descripcion

@@ -6,3 +6,23 @@
     margin: 2rem;
 }
 
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: darkened 0.2s ;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+@keyframes darkened {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+}
+

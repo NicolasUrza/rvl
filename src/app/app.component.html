@@ -15,13 +15,17 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<main>
+<main id="main">
   <div
   #componentContainer
+  id="component_container"
   style="position: absolute; z-index: 1; width: 100%"
 ></div>
+<div id="overlay" class="overlay" *ngIf="controller.connectionMode" >
+
+</div>
   <app-navigation-bar></app-navigation-bar>
-  <app-toolbar></app-toolbar>
+  <app-toolbar [controller]="this.controller"></app-toolbar>
   <div class="flex-container">
     <app-topology [controller]="this.controller"></app-topology>
 

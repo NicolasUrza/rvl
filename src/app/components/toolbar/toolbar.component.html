@@ -2,6 +2,7 @@
 (cdkDragMoved)="this.moving = true"
 (cdkDragEnded)="this.moving = false"
 cdkDrag>
+    <div class="nav__buttons__overlay" *ngIf="controller.connectionMode"></div>
     <div class="button__group" >
       <svg
         class="button__individual"

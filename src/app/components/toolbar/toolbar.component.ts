@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { TopologyController } from 'src/app/controllers/TopologyController';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
   moving = false;
+  @Input() controller: TopologyController;
 }

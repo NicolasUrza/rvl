@@ -5,7 +5,7 @@ export class  TopologyObjectBuilder{
             let topologyObject = {
                 name: name,
                 imgsource: imgSource,
-                isConnected: false,
+                cantInterfaces: 3,
                 getProperties(): any {
                     return 
                         "Propiedades de "+ name
