@@ -9,14 +9,24 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="../node_modules/xterm/css/xterm.css" />
   <script src="../node_modules/xterm/lib/xterm.js"></script>
+   <script>
+    window.electronApi = {
+      sendToElectron: (data) => {
+        window.api.send('sendToElectron', data);
+      },
+      receiveFromElectron: (callback) => {
+        window.api.receive('receiveFromElectron', callback);
+      }
+    };
+  </script>
 </head>
 
 <body id="body">
   <!-- <div id="terminal"></div> -->
   <app-root></app-root>
-  <script src="../index.js">
+  <!-- <script src="../index.js"> -->
 
-  </script>
+  <!-- </script> -->
   
   <div class="the__gradients">
     <div class="pink__gradient"></div>
