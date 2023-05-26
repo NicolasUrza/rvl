@@ -23,17 +23,11 @@ export class Connections {
         const startY = rect1.top + rect1.height / 2;
         const endX = rect2.left + rect2.width / 2;
         const endY = rect2.top + rect2.height / 2;
-        document.body.removeChild(this.canvas);
-        // Create a new canvas element.
-        const canvas = document.createElement('canvas');
+    
 
         // Get the context of the canvas element.
-        const ctx = canvas.getContext('2d');
-        canvas.width = 5000;
-        canvas.height = 5000;
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
+        const ctx = this.canvas.getContext('2d');
+        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.fillStyle = '#000';
         ctx.strokeStyle = '#eaf2ff';
         ctx.lineWidth = 7;
@@ -41,8 +35,6 @@ export class Connections {
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
         ctx.stroke();
-        // Append the canvas element to the DOM.
-        document.body.appendChild(canvas);
-        this.canvas = canvas;
+
     }
 }

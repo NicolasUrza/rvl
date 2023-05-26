@@ -53,7 +53,7 @@ export class ItemComponent implements AfterViewInit {
   isConnected: boolean = false;
   moveCounter: number = 0;
   Move(event: CdkDragMove<string[]>) {
-    if (this.moveCounter % 7 == 0) {
+    if (this.moveCounter % 5 == 0) {
       this.controller.UpdateCanvas(this.topology.name);
     }
     this.moveCounter++;
