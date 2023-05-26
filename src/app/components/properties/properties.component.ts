@@ -8,4 +8,6 @@ import { TopologyController } from 'src/app/controllers/TopologyController';
 })
 export class PropertiesComponent {
   @Input() controller:TopologyController;
+
+  isTerminalVisible = false;
 }
