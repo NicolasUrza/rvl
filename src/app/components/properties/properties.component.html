@@ -1,6 +1,9 @@
 <div class="properties" cdkDrag cdkDragLockAxis="y">
-    <div class="property__title" cdkDragHandle>
-      <p class="property__text">Propiedades</p>
-    </div>
-
+  <div class="property__title" cdkDragHandle>
+    <p class="property__text">Propiedades</p>
   </div>
+  <div *ngFor="let name of controller.ids">
+
+    <app-terminal [name]="name"></app-terminal>
+  </div>
+</div>

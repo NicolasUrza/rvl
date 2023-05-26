@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { TopologyController } from 'src/app/controllers/TopologyController';
 
 @Component({
   selector: 'app-properties',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent {
-
+  @Input() controller:TopologyController;
 }

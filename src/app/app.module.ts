@@ -12,6 +12,7 @@ import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ItemComponent } from './components/item/item.component';
 import { ObserverDirective } from './directives/observer.directive';
+import { TerminalComponent } from './components/terminal/terminal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { ObserverDirective } from './directives/observer.directive';
     TopologyComponent,
     WorkspaceComponent,
     ItemComponent,
-    ObserverDirective
+    ObserverDirective,
+    TerminalComponent
 
 
   ],
