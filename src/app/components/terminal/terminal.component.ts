@@ -27,6 +27,11 @@ export class TerminalComponent {
     electron.ipcRenderer.on('terminal.incData', function(event, data) {
       term.write(data);
     });
-      
+
+    term.writeln("Welcome to the " + this.name + " terminal");
+    // mandar un data
+    term.write("ls\r");
+
+
   }
 }
