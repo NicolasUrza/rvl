@@ -20,6 +20,8 @@ e incluso ng serve --watch -o para que sumado a lo anterior se actualice ante lo
     <li>Se rediseñó el proceso de conexión para que el mismo sea mas intuitivo y agradable a la vista, estableciendo diferentes efectos visuales para hacerle sentir 
       al alumno que el simulador tiene vida y que responde ante sus acciones
   </li>
+   <li> Se elimino el drag and drop de dispositivos y fue reemplazado por un click para de esa forma poder crear objetos con mas fluidez en lugar de arrastrar y soltar todo el tiempo
+  </li>
 </ul>
 
 <footer> La versión de Angular utilizada es Angualr 12 </footer>
