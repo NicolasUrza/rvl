@@ -28,8 +28,7 @@ export class TerminalComponent {
     });
 
     term.writeln("Welcome to the " + this.name + " terminal");
-    // mandar un data
-    term.write("ls\r");
+
 
 
   }
