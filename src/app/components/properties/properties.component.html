@@ -1,11 +1,13 @@
 <div class="properties" cdkDrag cdkDragLockAxis="y">
   <div class="property__titles">
-    <div class="property__title" cdkDragHandle>
-      <p class="property__text" (click)="controller.ActivatePropertiesPanel()">Propiedades</p>
+    <div  class="property__title" [ngClass]="{'active-window': controller.activeTerminal == null}" cdkDragHandle>
+      <p class="property__text" (click)="clickEvent()"  
+      [ngClass]="status ? 'active-window' : ''"  (click)="controller.ActivatePropertiesPanel()">Propiedades</p>
     </div>
     <!-- Debe agregar se a su vez una clase cuando des click que sea la "active" que tenga como propiedad border-color: rbg(230,230,240) -->
-    <div  *ngFor="let name of controller.ids" class="property__title" cdkDragHandle>
-      <p class="property__text" (click)="controller.ActivateTerminal('terminal' + name)">{{name}}</p>
+    <div  *ngFor="let name of controller.ids" [ngClass]="{'active-window': controller.activeTerminal == 'terminal'+name}" class="property__title" cdkDragHandle>
+      <p class="property__text" (click)="clickEvent()"  
+      [ngClass]="status ? 'active-window' : ''" (click)="controller.ActivateTerminal('terminal' + name)">{{name}}</p>
     </div>
   
   </div>

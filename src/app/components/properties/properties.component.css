@@ -24,12 +24,17 @@
   cursor: pointer;
 }
 
+.active-window{
+  color: rgb(230 230 240);
+  border-color: rgb(230 230 240);
+}
+
 
 .property__text {
-  color: rgb(230 230 240);
-  font-weight: 400;
+  color:#ccc;
+  font-weight: 300;
   font-size: 2rem;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
   text-align: center;
 }
 

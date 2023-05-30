@@ -8,5 +8,9 @@ import { TopologyController } from 'src/app/controllers/TopologyController';
 })
 export class PropertiesComponent {
   @Input() controller:TopologyController;
-
+  status: boolean = false;
+  clickEvent(){
+      this.status = !this.status;       
+  }
+  
 }
