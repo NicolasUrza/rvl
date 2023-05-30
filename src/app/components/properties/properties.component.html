@@ -1,9 +1,18 @@
 <div class="properties" cdkDrag cdkDragLockAxis="y">
-  <div class="property__title" cdkDragHandle>
-    <p class="property__text">Propiedades</p>
+  <div class="property__titles">
+    <div class="property__title" cdkDragHandle>
+      <p class="property__text">Propiedades</p>
+    </div>
+    <!-- Debe agregar se a su vez una clase cuando des click que sea la "active" que tenga como propiedad border-color: rbg(230,230,240) -->
+    <div (click)="isTerminalVisible == !isTerminalVisible" *ngFor="let name of controller.ids" class="property__title">
+      <p class="property__text">{{name}}</p>
+    </div>
+  
   </div>
-  <div *ngFor="let name of controller.ids">
-
-    <app-terminal [name]="name"></app-terminal>
-  </div>
+ 
+    <div *ngFor="let name of controller.ids">
+    
+      <app-terminal *ngIf="isTerminalVisible" [name]="name"></app-terminal>
+    </div>
+  
 </div>

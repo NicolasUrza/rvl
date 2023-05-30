@@ -14,7 +14,8 @@ export class TerminalComponent {
     var term = new Terminal({
       fontSize: 40,
       letterSpacing:-13,
-      fontWeight:700
+      fontWeight:700,
+    
     });
     
     term.open(document.getElementById("terminal" + this.name));
