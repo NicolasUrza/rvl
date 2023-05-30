@@ -18,20 +18,12 @@
   
 }
 
-.property__title:not(:first-child){
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transition: .3s all;
-
-}
-.property__title:not(:first-child):hover{
+.property__title:hover{
   border-color: rgb(230 230 240);
- 
+
   cursor: pointer;
 }
-.property__title:first-child{
-  border-top-right-radius: 10px;
-}
+
 
 .property__text {
   color: rgb(230 230 240);

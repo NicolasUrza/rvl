@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Terminal } from 'xterm';
 declare var electron: any;
 @Component({
@@ -6,7 +6,12 @@ declare var electron: any;
   templateUrl: './terminal.component.html',
   styleUrls: ['./terminal.component.css']
 })
-export class TerminalComponent {
+export class TerminalComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    this.showTerminal()
+
+  }
+
   @Input() name:string;
 
   showTerminal():void{

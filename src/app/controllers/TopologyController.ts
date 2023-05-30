@@ -12,6 +12,7 @@ export class TopologyController {
     connections: Connections[] = [];
     connectionMode = false;
     lastConnection: Connections = null;
+    activeTerminal: string = null;
     constructor(appComponent: AppComponent) {
         this.appC = appComponent;
     }
@@ -69,6 +70,26 @@ export class TopologyController {
             }   
             
         });
+    }
+
+    ActivateTerminal(terminal: string){
+        // we deactivate the previous terminal:
+        if(this.activeTerminal != null){
+            let previousTerminal = document.getElementById(this.activeTerminal)
+            previousTerminal.classList.add("hidden")
+        }
+        // we activate the new terminal:
+        let newTerminal = document.getElementById(terminal)
+        newTerminal.classList.remove("hidden")
+        this.activeTerminal = terminal;
+    }
+
+    ActivatePropertiesPanel(){
+        if(this.activeTerminal != null){
+            let Terminal = document.getElementById(this.activeTerminal)
+            Terminal.classList.add("hidden")
+            this.activeTerminal = null;
+        }
     }
 
 }
