@@ -4,7 +4,7 @@
     en sus tareas, acelerándose los tiempos de desarrollo gracias al reemplazo de GTK por Angular el cual trae muchas mas posibilidades al momento
     de plantear alternativas innovadoras y que puedan en última instancia beneficiar al usuario final del simulador que es el estudiante</p>
  
-#<h2> Comandos basicos para la ejecucion </h2>
+#<h2> Comandos básicos para la ejecución </h2>
 <p>Se configuró el siguiente script "npm run electron" el cual puede ejecutar una instancia de nodejs en el ordenador local del desarrollador.</p>
 <p/> Además si se lo desea puede ejecutarse el programa en un entorno web utilizando los comandos de Angular ng serve -o para que lo ejecute abriendo una nueva página local
 e incluso ng serve --watch -o para que sumado a lo anterior se actualice ante los cambios</p>
